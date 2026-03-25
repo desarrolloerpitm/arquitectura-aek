@@ -1,0 +1,442 @@
+├── Back
+│   ├── emails
+│   │   ├── resetPassword
+│   │   │   └── html.pug
+│   │   └── usuarios
+│   │       └── html.pug
+│   ├── externals-scripts
+│   │   └── google-app-script
+│   │       └── enviar-datos-empleados.js
+│   ├── src
+│   │   ├── config
+│   │   │   ├── config.js
+│   │   │   ├── express.config.js
+│   │   │   └── swagger-options.config.js
+│   │   ├── custom
+│   │   │   └── swagger
+│   │   │       └── contrato-api.js
+│   │   ├── db
+│   │   │   ├── utils
+│   │   │   │   └── renameCollectionScript.js
+│   │   │   └── connection.js
+│   │   ├── middlewares
+│   │   │   ├── auth-apikey-anonymous.middleware.js
+│   │   │   ├── auth-apikey-public.middleware.js
+│   │   │   ├── auth-public.middleware.js
+│   │   │   ├── auth.middleware.js
+│   │   │   ├── error-handler.middleware.js
+│   │   │   ├── forgot-password.middleware.js
+│   │   │   ├── rate-limiter.middleware.js
+│   │   │   ├── validation-error-handler.middleware.js
+│   │   │   └── validation-handler.middleware.js
+│   │   ├── modules
+│   │   │   ├── anonymous
+│   │   │   │   └── parametros-generales
+│   │   │   │       ├── parametros-generales.controller.js
+│   │   │   │       ├── parametros-generales.routes.js
+│   │   │   │       └── swagger.yaml
+│   │   │   ├── integracion
+│   │   │   │   └── empleados
+│   │   │   │       ├── empleados.controller.js
+│   │   │   │       ├── empleados.routes.js
+│   │   │   │       └── swagger.yaml
+│   │   │   ├── internals
+│   │   │   │   ├── areas-formacion
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── area-formacion.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── areas-formacion.controller.js
+│   │   │   │   │   ├── areas-formacion.routes.js
+│   │   │   │   │   ├── areas-formacion.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── auth
+│   │   │   │   │   └── autenticacion
+│   │   │   │   │       ├── schema
+│   │   │   │   │       │   ├── actualizar-password.shema.js
+│   │   │   │   │       │   ├── iniciar-sesion.shema.js
+│   │   │   │   │       │   └── recuperar-password.shema.js
+│   │   │   │   │       ├── autenticacion.controller.js
+│   │   │   │   │       ├── autenticacion.routes.js
+│   │   │   │   │       └── swagger.yaml
+│   │   │   │   ├── empleados
+│   │   │   │   │   ├── constants
+│   │   │   │   │   │   ├── areas-formacion.js
+│   │   │   │   │   │   ├── estado-civil.js
+│   │   │   │   │   │   ├── estrato-socioeconomico.js
+│   │   │   │   │   │   ├── frecuencia-pago.js
+│   │   │   │   │   │   ├── medio-transporte.js
+│   │   │   │   │   │   ├── niveles-educativos.js
+│   │   │   │   │   │   ├── niveles-jerarquicos.js
+│   │   │   │   │   │   ├── sexo.js
+│   │   │   │   │   │   ├── tipo-salario.js
+│   │   │   │   │   │   ├── tipo-sanguineo.js
+│   │   │   │   │   │   └── tipo-vivienda.js
+│   │   │   │   │   ├── factories
+│   │   │   │   │   │   └── empleado.factory.js
+│   │   │   │   │   ├── helpers
+│   │   │   │   │   │   ├── actualizar.helper.js
+│   │   │   │   │   │   ├── filtros-buscar-todos.helper.js
+│   │   │   │   │   │   └── sincronizar-empleados.helper.js
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── contacto-emergencia.model.js
+│   │   │   │   │   │   ├── datos-bancarios.model.js
+│   │   │   │   │   │   ├── datos-contacto.model.js
+│   │   │   │   │   │   ├── datos-financieros.model.js
+│   │   │   │   │   │   ├── demografico.model.js
+│   │   │   │   │   │   ├── educacion.model.js
+│   │   │   │   │   │   ├── empleado.model.js
+│   │   │   │   │   │   ├── habeas-data.model.js
+│   │   │   │   │   │   ├── informacion-empresa.model.js
+│   │   │   │   │   │   ├── nomina.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── crear-empleado
+│   │   │   │   │   │   │   ├── crear-contacto-emergencia.schema.js
+│   │   │   │   │   │   │   ├── crear-datos-bancarios.schema.js
+│   │   │   │   │   │   │   ├── crear-datos-contacto.schema.js
+│   │   │   │   │   │   │   ├── crear-datos-financieros.schema.js
+│   │   │   │   │   │   │   ├── crear-demograficos.schema.js
+│   │   │   │   │   │   │   ├── crear-educacion.schema.js
+│   │   │   │   │   │   │   ├── crear-habeas-data.schema.js
+│   │   │   │   │   │   │   ├── crear-informacion-empresa.schema.js
+│   │   │   │   │   │   │   └── crear-nomina.schema.js
+│   │   │   │   │   │   ├── actualizar-empleado.schema.js
+│   │   │   │   │   │   ├── crear-empleado.schema.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── seeders
+│   │   │   │   │   │   └── empleado.seeder.js
+│   │   │   │   │   ├── empleados.controller.js
+│   │   │   │   │   ├── empleados.routes.js
+│   │   │   │   │   ├── empleados.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── empresas
+│   │   │   │   │   ├── helpers
+│   │   │   │   │   │   └── filtros.helper.js
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── empresa.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── actualizar-empresa.schema.js
+│   │   │   │   │   │   ├── crear-empresa.schema.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── empresas.controller.js
+│   │   │   │   │   ├── empresas.routes.js
+│   │   │   │   │   ├── empresas.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── logging
+│   │   │   │   │   ├── helpers
+│   │   │   │   │   │   └── filtros.helper.js
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── log.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── crear-log.schema.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── logs.controller.js
+│   │   │   │   │   ├── logs.routes.js
+│   │   │   │   │   ├── logs.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── niveles-educativos
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── nivel-educativo.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── niveles-educativos.controller.js
+│   │   │   │   │   ├── niveles-educativos.routes.js
+│   │   │   │   │   ├── niveles-educativos.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── niveles-jerarquicos
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── nivel-jerarquico.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── niveles-jerarquicos.controller.js
+│   │   │   │   │   ├── niveles-jerarquicos.routes.js
+│   │   │   │   │   ├── niveles-jerarquicos.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── parametros-generales
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── parametro-general.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── actualizar-parametro-general.scheme.js
+│   │   │   │   │   │   ├── crear-parametro-general.scheme.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── parametros-generales.controller.js
+│   │   │   │   │   ├── parametros-generales.routes.js
+│   │   │   │   │   ├── parametros-generales.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── tipos-contratos
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   │   └── tipo-contrato.model.js
+│   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   ├── tipos-contratos.controller.js
+│   │   │   │   │   ├── tipos-contratos.routes.js
+│   │   │   │   │   └── tipos-contratos.service.js
+│   │   │   │   ├── tipos-documentos
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   │   └── tipo-documento.model.js
+│   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   ├── tipos-documentos.controller.js
+│   │   │   │   │   ├── tipos-documentos.routes.js
+│   │   │   │   │   └── tipos-documentos.service.js
+│   │   │   │   └── usuarios
+│   │   │   │       ├── roles
+│   │   │   │       │   ├── models
+│   │   │   │       │   │   ├── rol.model.js
+│   │   │   │       │   │   └── swagger.yaml
+│   │   │   │       │   ├── schemas
+│   │   │   │       │   │   ├── actualizar-rol.schema.js
+│   │   │   │       │   │   ├── crear-rol.schema.js
+│   │   │   │       │   │   └── swagger.yaml
+│   │   │   │       │   ├── roles.controller.js
+│   │   │   │       │   ├── roles.routes.js
+│   │   │   │       │   ├── roles.service.js
+│   │   │   │       │   └── swagger.yaml
+│   │   │   │       ├── usuarios
+│   │   │   │       │   ├── helpers
+│   │   │   │       │   │   └── filtros.helper.js
+│   │   │   │       │   ├── models
+│   │   │   │       │   │   ├── swagger.yaml
+│   │   │   │       │   │   └── usuario.model.js
+│   │   │   │       │   ├── schemas
+│   │   │   │       │   │   ├── actualizar-usuario.shema.js
+│   │   │   │       │   │   ├── crear-usuario.schema.js
+│   │   │   │       │   │   └── swagger.yaml
+│   │   │   │       │   ├── swagger.yaml
+│   │   │   │       │   ├── usuarios.controller.js
+│   │   │   │       │   ├── usuarios.routes.js
+│   │   │   │       │   └── usuarios.service.js
+│   │   │   │       └── usuarios-apis
+│   │   │   │           ├── models
+│   │   │   │           │   ├── swagger.yaml
+│   │   │   │           │   └── usuario-api.model.js
+│   │   │   │           ├── schemas
+│   │   │   │           │   ├── actualizar-usuario-api.scheme.js
+│   │   │   │           │   ├── crear-usuario-api.scheme.js
+│   │   │   │           │   └── swagger.yaml
+│   │   │   │           ├── swagger.yaml
+│   │   │   │           ├── usuarios-api.controller.js
+│   │   │   │           ├── usuarios-api.routes.js
+│   │   │   │           └── usuarios-api.service.js
+│   │   │   └── publics
+│   │   │       ├── autenticacion
+│   │   │       │   ├── auth.controller.js
+│   │   │       │   ├── auth.routes.js
+│   │   │       │   ├── auth.service.js
+│   │   │       │   └── swagger.yaml
+│   │   │       └── empleados
+│   │   │           ├── helpers
+│   │   │           │   ├── antiguedad.helper.js
+│   │   │           │   ├── calculos.helper.js
+│   │   │           │   └── crear-empleado-publico.helper.js
+│   │   │           ├── schemas
+│   │   │           │   ├── crear-empleado-publico
+│   │   │           │   │   ├── crear-contacto-emergencia-publico.schema.js
+│   │   │           │   │   ├── crear-datos-contacto-publico.schema.js
+│   │   │           │   │   ├── crear-datos-financieros-publico.schema.js
+│   │   │           │   │   ├── crear-demograficos-publico.schema.js
+│   │   │           │   │   ├── crear-educacion-publico.schema.js
+│   │   │           │   │   ├── crear-habeas-data-publico.schema.js
+│   │   │           │   │   └── crear-nomina-publico.schema.js
+│   │   │           │   ├── crear-empleado-publico.schema.js
+│   │   │           │   └── swagger.yaml
+│   │   │           ├── empleados.controller.js
+│   │   │           ├── empleados.mapper.js
+│   │   │           ├── empleados.routes.js
+│   │   │           ├── empleados.service.js
+│   │   │           └── swagger.yaml
+│   │   ├── routes
+│   │   │   ├── anonimas.routes.js
+│   │   │   ├── index.js
+│   │   │   ├── integracion.routes.js
+│   │   │   ├── internas.routes.js
+│   │   │   └── publicas.routes.js
+│   │   ├── seeds
+│   │   │   ├── initial-data.seed.js
+│   │   │   └── run-seeders.seed.js
+│   │   ├── services
+│   │   │   ├── apiDataIt.js
+│   │   │   ├── crearTransporteEmail.js
+│   │   │   └── sendEmail.js
+│   │   ├── utils
+│   │   │   ├── pagination.util.js
+│   │   │   ├── responseMessage.js
+│   │   │   ├── token-publico.util.js
+│   │   │   ├── token.js
+│   │   │   └── tokenPassword.js
+│   │   ├── app.js
+│   │   ├── index.js
+│   │   └── modelos.js
+│   ├── .babelrc
+│   ├── .dockerignore
+│   ├── .env.development
+│   ├── .env.production
+│   ├── .eslintignore
+│   ├── .eslintrc.json
+│   ├── .gitignore
+│   ├── .prettierrc
+│   ├── Dockerfile
+│   ├── example.env
+│   ├── index.html
+│   ├── nodemon.json
+│   ├── package-lock.json
+│   ├── package.json
+│   └── README.md
+├── Front
+│   ├── public
+│   │   ├── IconoWarning.png
+│   │   ├── index.html
+│   │   ├── logo.ico
+│   │   └── LogoPedidoEnLinea.png
+│   ├── src
+│   │   ├── API
+│   │   │   ├── Services
+│   │   │   │   └── Services.js
+│   │   │   └── ApiURL.js
+│   │   ├── assets
+│   │   │   ├── logos
+│   │   │   │   └── logo.png
+│   │   │   └── Styles
+│   │   │       ├── alert.css
+│   │   │       ├── styleBotones.css
+│   │   │       └── styleLogin.css
+│   │   ├── components
+│   │   │   ├── Layout
+│   │   │   │   └── SubModulo.vue
+│   │   │   ├── Modal
+│   │   │   │   └── ModalLoading.vue
+│   │   │   ├── Novedades
+│   │   │   │   ├── ModalCartera.vue
+│   │   │   │   └── ModalFormEmpleado.vue
+│   │   │   ├── Table
+│   │   │   │   └── DataTablePagination.vue
+│   │   │   ├── Users
+│   │   │   │   └── ModalFormUsuario.vue
+│   │   │   ├── Avatar.vue
+│   │   │   ├── Footer.vue
+│   │   │   ├── ImagenCompania.vue
+│   │   │   ├── SendEmail.vue
+│   │   │   └── Sidebar.vue
+│   │   ├── config
+│   │   │   └── axiosConfig.js
+│   │   ├── constants
+│   │   │   └── tipoContrato.js
+│   │   ├── data
+│   │   │   └── excelJsData.js
+│   │   ├── decorators
+│   │   │   ├── headersExcelJsDecorator.js
+│   │   │   ├── tableExcelJsDecorator.js
+│   │   │   └── tableSubFilasExcelJsDecorator.js
+│   │   ├── mixins
+│   │   │   └── paginacionMixin.js
+│   │   ├── model
+│   │   │   ├── ModelEmpleado.js
+│   │   │   └── ModelRol.js
+│   │   ├── plugins
+│   │   │   ├── MultiFilters.js
+│   │   │   ├── sweetalert2.js
+│   │   │   └── vuetify.js
+│   │   ├── router
+│   │   │   └── index.js
+│   │   ├── Services
+│   │   │   ├── auth
+│   │   │   │   └── authServices.js
+│   │   │   ├── Integraciones
+│   │   │   │   └── genericTransferService.js
+│   │   │   ├── ApiIT.js
+│   │   │   ├── empleadoService.js
+│   │   │   ├── empresaService.js
+│   │   │   ├── logService.js
+│   │   │   ├── parametrosGeneralesService.js
+│   │   │   ├── rolService.js
+│   │   │   ├── tipoDocumentoService.js
+│   │   │   └── usuarioService.js
+│   │   ├── store
+│   │   │   └── index.js
+│   │   ├── utils
+│   │   │   ├── actualizacionEmpresaUtil.js
+│   │   │   ├── alertResponseHttpUtil.js
+│   │   │   ├── alertUtil.js
+│   │   │   ├── configError.js
+│   │   │   ├── errorHandlerUtil.js
+│   │   │   ├── excelJsUtil.js
+│   │   │   └── formatearMonedaUtil.js
+│   │   ├── views
+│   │   │   ├── Configurar
+│   │   │   │   ├── EditarEmpresa
+│   │   │   │   │   ├── Modal
+│   │   │   │   │   │   └── SucursalesModal.vue
+│   │   │   │   │   ├── Table
+│   │   │   │   │   │   └── SucursalesTable.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   ├── Empresas
+│   │   │   │   │   ├── Table
+│   │   │   │   │   │   └── EmpresasTable.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   ├── ParametrizarConvenio
+│   │   │   │   │   ├── Modal
+│   │   │   │   │   │   └── EditarSucursal.vue
+│   │   │   │   │   ├── Table
+│   │   │   │   │   │   └── SucursalesConvenioTable.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   └── Compania.vue
+│   │   │   ├── Log
+│   │   │   │   └── Log.vue
+│   │   │   ├── Novedades
+│   │   │   │   ├── ConsultaCreditos
+│   │   │   │   │   ├── Alerts
+│   │   │   │   │   │   ├── DatosDesactualizados.vue
+│   │   │   │   │   │   └── EmpleadoNoRegistrado.vue
+│   │   │   │   │   ├── Form
+│   │   │   │   │   │   └── BuscarEmpleadoForm.vue
+│   │   │   │   │   ├── Partials
+│   │   │   │   │   │   ├── DatosEmpleado.vue
+│   │   │   │   │   │   └── DisponibilidadCreditos.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   ├── EmpleadosRetirados
+│   │   │   │   │   ├── Form
+│   │   │   │   │   │   └── FiltrarEmpleadosRetirados.vue
+│   │   │   │   │   ├── reports
+│   │   │   │   │   │   └── descargarHistoricoEmpRetirados.js
+│   │   │   │   │   ├── Table
+│   │   │   │   │   │   └── EmpleadosRetiradosTable.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   ├── reports
+│   │   │   │   │   ├── camposExcel.js
+│   │   │   │   │   └── datosEmpleados.js
+│   │   │   │   ├── ImportarDatos.vue
+│   │   │   │   └── RegistrarDatos.vue
+│   │   │   ├── Users
+│   │   │   │   ├── ForgotPassword.vue
+│   │   │   │   ├── GestionUsuario.vue
+│   │   │   │   ├── MyPerfil.vue
+│   │   │   │   ├── Roles.vue
+│   │   │   │   └── Usuario.vue
+│   │   │   ├── Home.vue
+│   │   │   └── Login.vue
+│   │   ├── App.vue
+│   │   └── main.js
+│   ├── vendor
+│   │   └── xlsx-0.20.0.tgz
+│   ├── .dockerignore
+│   ├── .env.development
+│   ├── .env.production
+│   ├── .eslintignore
+│   ├── .eslintrc.json
+│   ├── .gitignore
+│   ├── .prettierrc
+│   ├── babel.config.js
+│   ├── Dockerfile
+│   ├── example.env
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── README.md
+│   └── vue.config.js
+├── .dockerignore
+├── .env
+├── .gitattributes
+├── .gitignore
+├── arquitectura.ps1
+├── docker-compose.yml
+└── README.md
