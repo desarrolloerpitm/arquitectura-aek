@@ -76,7 +76,8 @@
 │   │   │   │   │   ├── helpers
 │   │   │   │   │   │   ├── actualizar.helper.js
 │   │   │   │   │   │   ├── filtros-buscar-todos.helper.js
-│   │   │   │   │   │   └── sincronizar-empleados.helper.js
+│   │   │   │   │   │   ├── sincronizar-empleados.helper.js
+│   │   │   │   │   │   └── validar-elegibilidad.helper.js
 │   │   │   │   │   ├── models
 │   │   │   │   │   │   ├── contacto-emergencia.model.js
 │   │   │   │   │   │   ├── datos-bancarios.model.js
@@ -180,45 +181,53 @@
 │   │   │   │   │   ├── tipos-documentos.controller.js
 │   │   │   │   │   ├── tipos-documentos.routes.js
 │   │   │   │   │   └── tipos-documentos.service.js
-│   │   │   │   └── usuarios
-│   │   │   │       ├── roles
-│   │   │   │       │   ├── models
-│   │   │   │       │   │   ├── rol.model.js
-│   │   │   │       │   │   └── swagger.yaml
-│   │   │   │       │   ├── schemas
-│   │   │   │       │   │   ├── actualizar-rol.schema.js
-│   │   │   │       │   │   ├── crear-rol.schema.js
-│   │   │   │       │   │   └── swagger.yaml
-│   │   │   │       │   ├── roles.controller.js
-│   │   │   │       │   ├── roles.routes.js
-│   │   │   │       │   ├── roles.service.js
-│   │   │   │       │   └── swagger.yaml
-│   │   │   │       ├── usuarios
-│   │   │   │       │   ├── helpers
-│   │   │   │       │   │   └── filtros.helper.js
-│   │   │   │       │   ├── models
-│   │   │   │       │   │   ├── swagger.yaml
-│   │   │   │       │   │   └── usuario.model.js
-│   │   │   │       │   ├── schemas
-│   │   │   │       │   │   ├── actualizar-usuario.shema.js
-│   │   │   │       │   │   ├── crear-usuario.schema.js
-│   │   │   │       │   │   └── swagger.yaml
-│   │   │   │       │   ├── swagger.yaml
-│   │   │   │       │   ├── usuarios.controller.js
-│   │   │   │       │   ├── usuarios.routes.js
-│   │   │   │       │   └── usuarios.service.js
-│   │   │   │       └── usuarios-apis
-│   │   │   │           ├── models
-│   │   │   │           │   ├── swagger.yaml
-│   │   │   │           │   └── usuario-api.model.js
-│   │   │   │           ├── schemas
-│   │   │   │           │   ├── actualizar-usuario-api.scheme.js
-│   │   │   │           │   ├── crear-usuario-api.scheme.js
-│   │   │   │           │   └── swagger.yaml
-│   │   │   │           ├── swagger.yaml
-│   │   │   │           ├── usuarios-api.controller.js
-│   │   │   │           ├── usuarios-api.routes.js
-│   │   │   │           └── usuarios-api.service.js
+│   │   │   │   ├── usuarios
+│   │   │   │   │   ├── roles
+│   │   │   │   │   │   ├── models
+│   │   │   │   │   │   │   ├── rol.model.js
+│   │   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   │   ├── schemas
+│   │   │   │   │   │   │   ├── actualizar-rol.schema.js
+│   │   │   │   │   │   │   ├── crear-rol.schema.js
+│   │   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   │   ├── roles.controller.js
+│   │   │   │   │   │   ├── roles.routes.js
+│   │   │   │   │   │   ├── roles.service.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── usuarios
+│   │   │   │   │   │   ├── helpers
+│   │   │   │   │   │   │   └── filtros.helper.js
+│   │   │   │   │   │   ├── models
+│   │   │   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   │   │   └── usuario.model.js
+│   │   │   │   │   │   ├── schemas
+│   │   │   │   │   │   │   ├── actualizar-usuario.shema.js
+│   │   │   │   │   │   │   ├── crear-usuario.schema.js
+│   │   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   │   ├── usuarios.controller.js
+│   │   │   │   │   │   ├── usuarios.routes.js
+│   │   │   │   │   │   └── usuarios.service.js
+│   │   │   │   │   └── usuarios-apis
+│   │   │   │   │       ├── models
+│   │   │   │   │       │   ├── swagger.yaml
+│   │   │   │   │       │   └── usuario-api.model.js
+│   │   │   │   │       ├── schemas
+│   │   │   │   │       │   ├── actualizar-usuario-api.scheme.js
+│   │   │   │   │       │   ├── crear-usuario-api.scheme.js
+│   │   │   │   │       │   └── swagger.yaml
+│   │   │   │   │       ├── swagger.yaml
+│   │   │   │   │       ├── usuarios-api.controller.js
+│   │   │   │   │       ├── usuarios-api.routes.js
+│   │   │   │   │       └── usuarios-api.service.js
+│   │   │   │   └── variables-globales
+│   │   │   │       ├── factories
+│   │   │   │       │   └── variable-global.factory.js
+│   │   │   │       ├── models
+│   │   │   │       │   └── variable-global.model.js
+│   │   │   │       ├── seeders
+│   │   │   │       │   └── variable-global.seeder.js
+│   │   │   │       └── variables-globales.service.js
 │   │   │   └── publics
 │   │   │       ├── autenticacion
 │   │   │       │   ├── auth.controller.js
@@ -226,24 +235,27 @@
 │   │   │       │   ├── auth.service.js
 │   │   │       │   └── swagger.yaml
 │   │   │       └── empleados
-│   │   │           ├── helpers
-│   │   │           │   ├── antiguedad.helper.js
-│   │   │           │   ├── calculos.helper.js
-│   │   │           │   └── crear-empleado-publico.helper.js
-│   │   │           ├── schemas
-│   │   │           │   ├── crear-empleado-publico
-│   │   │           │   │   ├── crear-contacto-emergencia-publico.schema.js
-│   │   │           │   │   ├── crear-datos-contacto-publico.schema.js
-│   │   │           │   │   ├── crear-datos-financieros-publico.schema.js
-│   │   │           │   │   ├── crear-demograficos-publico.schema.js
-│   │   │           │   │   ├── crear-educacion-publico.schema.js
-│   │   │           │   │   ├── crear-habeas-data-publico.schema.js
-│   │   │           │   │   └── crear-nomina-publico.schema.js
-│   │   │           │   ├── crear-empleado-publico.schema.js
+│   │   │           ├── v1
+│   │   │           │   ├── helpers
+│   │   │           │   │   ├── calculos-salariales.helper.js
+│   │   │           │   │   ├── calculos-temporales.helper.js
+│   │   │           │   │   └── crear-empleado-publico.helper.js
+│   │   │           │   ├── schemas
+│   │   │           │   │   ├── crear-empleado-publico
+│   │   │           │   │   │   ├── crear-contacto-emergencia-publico.schema.js
+│   │   │           │   │   │   ├── crear-datos-contacto-publico.schema.js
+│   │   │           │   │   │   ├── crear-datos-financieros-publico.schema.js
+│   │   │           │   │   │   ├── crear-demograficos-publico.schema.js
+│   │   │           │   │   │   ├── crear-educacion-publico.schema.js
+│   │   │           │   │   │   ├── crear-habeas-data-publico.schema.js
+│   │   │           │   │   │   └── crear-nomina-publico.schema.js
+│   │   │           │   │   ├── crear-empleado-publico.schema.js
+│   │   │           │   │   ├── swagger.yaml
+│   │   │           │   │   └── validar-elegibilidad.schema.js
+│   │   │           │   ├── empleados.controller.js
+│   │   │           │   ├── empleados.mapper.js
+│   │   │           │   ├── empleados.routes.js
 │   │   │           │   └── swagger.yaml
-│   │   │           ├── empleados.controller.js
-│   │   │           ├── empleados.mapper.js
-│   │   │           ├── empleados.routes.js
 │   │   │           ├── empleados.service.js
 │   │   │           └── swagger.yaml
 │   │   ├── routes
@@ -261,6 +273,7 @@
 │   │   │   └── sendEmail.js
 │   │   ├── utils
 │   │   │   ├── pagination.util.js
+│   │   │   ├── personalizar-swagger.js
 │   │   │   ├── responseMessage.js
 │   │   │   ├── token-publico.util.js
 │   │   │   ├── token.js
