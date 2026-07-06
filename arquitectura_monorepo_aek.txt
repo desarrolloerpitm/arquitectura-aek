@@ -1,3 +1,6 @@
+├── .scannerwork
+│   ├── .sonar_lock
+│   └── report-task.txt
 ├── Back
 │   ├── emails
 │   │   ├── resetPassword
@@ -9,6 +12,7 @@
 │   │       └── enviar-datos-empleados.js
 │   ├── src
 │   │   ├── config
+│   │   │   ├── axiosConfig.js
 │   │   │   ├── config.js
 │   │   │   ├── express.config.js
 │   │   │   └── swagger-options.config.js
@@ -17,6 +21,7 @@
 │   │   │       └── contrato-api.js
 │   │   ├── db
 │   │   │   ├── utils
+│   │   │   │   ├── contador.model.js
 │   │   │   │   └── renameCollectionScript.js
 │   │   │   └── connection.js
 │   │   ├── middlewares
@@ -36,6 +41,10 @@
 │   │   │   │       ├── parametros-generales.routes.js
 │   │   │   │       └── swagger.yaml
 │   │   │   ├── integracion
+│   │   │   │   ├── bancos
+│   │   │   │   │   ├── bancos.controller.js
+│   │   │   │   │   ├── bancos.routes.js
+│   │   │   │   │   └── swagger.yaml
 │   │   │   │   └── empleados
 │   │   │   │       ├── empleados.controller.js
 │   │   │   │       ├── empleados.routes.js
@@ -58,6 +67,20 @@
 │   │   │   │   │       ├── autenticacion.controller.js
 │   │   │   │   │       ├── autenticacion.routes.js
 │   │   │   │   │       └── swagger.yaml
+│   │   │   │   ├── bancos
+│   │   │   │   │   ├── helpers
+│   │   │   │   │   │   └── filtros.helper.js
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── banco.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── actualizar-banco.schema.js
+│   │   │   │   │   │   ├── crear-banco.schema.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── bancos.controller.js
+│   │   │   │   │   ├── bancos.routes.js
+│   │   │   │   │   ├── bancos.service.js
+│   │   │   │   │   └── swagger.yaml
 │   │   │   │   ├── empleados
 │   │   │   │   │   ├── constants
 │   │   │   │   │   │   ├── areas-formacion.js
@@ -75,6 +98,7 @@
 │   │   │   │   │   │   └── empleado.factory.js
 │   │   │   │   │   ├── helpers
 │   │   │   │   │   │   ├── actualizar.helper.js
+│   │   │   │   │   │   ├── enriquecer-ubicaciones.helper.js
 │   │   │   │   │   │   ├── filtros-buscar-todos.helper.js
 │   │   │   │   │   │   ├── sincronizar-empleados.helper.js
 │   │   │   │   │   │   └── validar-elegibilidad.helper.js
@@ -106,6 +130,8 @@
 │   │   │   │   │   │   └── swagger.yaml
 │   │   │   │   │   ├── seeders
 │   │   │   │   │   │   └── empleado.seeder.js
+│   │   │   │   │   ├── services
+│   │   │   │   │   │   └── sincronizar.service.js
 │   │   │   │   │   ├── empleados.controller.js
 │   │   │   │   │   ├── empleados.routes.js
 │   │   │   │   │   ├── empleados.service.js
@@ -127,6 +153,13 @@
 │   │   │   │   ├── logging
 │   │   │   │   │   ├── helpers
 │   │   │   │   │   │   └── filtros.helper.js
+│   │   │   │   │   ├── log-modulos
+│   │   │   │   │   │   ├── helpers
+│   │   │   │   │   │   │   ├── aplanar-objeto.helper.js
+│   │   │   │   │   │   │   └── comparador-logs.helper.js
+│   │   │   │   │   │   ├── models
+│   │   │   │   │   │   │   └── log-modulos.model.js
+│   │   │   │   │   │   └── log-modulos.service.js
 │   │   │   │   │   ├── models
 │   │   │   │   │   │   ├── log.model.js
 │   │   │   │   │   │   └── swagger.yaml
@@ -152,6 +185,25 @@
 │   │   │   │   │   ├── niveles-jerarquicos.controller.js
 │   │   │   │   │   ├── niveles-jerarquicos.routes.js
 │   │   │   │   │   ├── niveles-jerarquicos.service.js
+│   │   │   │   │   └── swagger.yaml
+│   │   │   │   ├── novedades
+│   │   │   │   │   ├── constants
+│   │   │   │   │   │   └── tipo-novedad.js
+│   │   │   │   │   ├── factories
+│   │   │   │   │   │   └── novedad.factory.js
+│   │   │   │   │   ├── helpers
+│   │   │   │   │   │   └── filtros-buscar-todos.helper.js
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── novedad.model.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── crear-novedad.schema.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── seeders
+│   │   │   │   │   │   └── novedad.seeder.js
+│   │   │   │   │   ├── novedades.controller.js
+│   │   │   │   │   ├── novedades.routes.js
+│   │   │   │   │   ├── novedades.service.js
 │   │   │   │   │   └── swagger.yaml
 │   │   │   │   ├── parametros-generales
 │   │   │   │   │   ├── models
@@ -181,6 +233,20 @@
 │   │   │   │   │   ├── tipos-documentos.controller.js
 │   │   │   │   │   ├── tipos-documentos.routes.js
 │   │   │   │   │   └── tipos-documentos.service.js
+│   │   │   │   ├── tipos-novedades
+│   │   │   │   │   ├── helpers
+│   │   │   │   │   │   └── filtros.helper.js
+│   │   │   │   │   ├── models
+│   │   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   │   └── tipo-novedad.model.js
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── actualizar-tipo-novedad.schema.js
+│   │   │   │   │   │   ├── crear-tipo-novedad.schema.js
+│   │   │   │   │   │   └── swagger.yaml
+│   │   │   │   │   ├── swagger.yaml
+│   │   │   │   │   ├── tipos-novedades.controller.js
+│   │   │   │   │   ├── tipos-novedades.routes.js
+│   │   │   │   │   └── tipos-novedades.service.js
 │   │   │   │   ├── usuarios
 │   │   │   │   │   ├── roles
 │   │   │   │   │   │   ├── models
@@ -201,6 +267,7 @@
 │   │   │   │   │   │   │   ├── swagger.yaml
 │   │   │   │   │   │   │   └── usuario.model.js
 │   │   │   │   │   │   ├── schemas
+│   │   │   │   │   │   │   ├── actualizar-informacion-perfil.schema.js
 │   │   │   │   │   │   │   ├── actualizar-usuario.shema.js
 │   │   │   │   │   │   │   ├── crear-usuario.schema.js
 │   │   │   │   │   │   │   └── swagger.yaml
@@ -228,6 +295,11 @@
 │   │   │   │       ├── seeders
 │   │   │   │       │   └── variable-global.seeder.js
 │   │   │   │       └── variables-globales.service.js
+│   │   │   ├── provedores
+│   │   │   │   ├── api-data-erp
+│   │   │   │   │   └── api-data-erp.service.js
+│   │   │   │   └── api-documentos
+│   │   │   │       └── api-documentos.service.js
 │   │   │   └── publics
 │   │   │       ├── autenticacion
 │   │   │       │   ├── auth.controller.js
@@ -237,6 +309,7 @@
 │   │   │       └── empleados
 │   │   │           ├── v1
 │   │   │           │   ├── helpers
+│   │   │           │   │   ├── buscar-todos.helper.js
 │   │   │           │   │   ├── calculos-salariales.helper.js
 │   │   │           │   │   ├── calculos-temporales.helper.js
 │   │   │           │   │   └── crear-empleado-publico.helper.js
@@ -321,19 +394,18 @@
 │   │   │   │   └── ModalLoading.vue
 │   │   │   ├── Novedades
 │   │   │   │   ├── ModalCartera.vue
-│   │   │   │   └── ModalFormEmpleado.vue
+│   │   │   │   ├── ModalFormEmpleado.vue
+│   │   │   │   └── TarjetaTituloPaso.vue
 │   │   │   ├── Table
 │   │   │   │   └── DataTablePagination.vue
-│   │   │   ├── Users
-│   │   │   │   └── ModalFormUsuario.vue
 │   │   │   ├── Avatar.vue
 │   │   │   ├── Footer.vue
 │   │   │   ├── ImagenCompania.vue
-│   │   │   ├── SendEmail.vue
 │   │   │   └── Sidebar.vue
 │   │   ├── config
 │   │   │   └── axiosConfig.js
 │   │   ├── constants
+│   │   │   ├── estadoUsuario.js
 │   │   │   └── tipoContrato.js
 │   │   ├── data
 │   │   │   └── excelJsData.js
@@ -342,6 +414,11 @@
 │   │   │   ├── tableExcelJsDecorator.js
 │   │   │   └── tableSubFilasExcelJsDecorator.js
 │   │   ├── mixins
+│   │   │   ├── Permisos
+│   │   │   │   ├── Configurar
+│   │   │   │   │   └── parametrizacionCompaniaMixin.js
+│   │   │   │   └── user
+│   │   │   │       └── gestionUsuarioMixin.js
 │   │   │   └── paginacionMixin.js
 │   │   ├── model
 │   │   │   ├── ModelEmpleado.js
@@ -358,24 +435,51 @@
 │   │   │   ├── Integraciones
 │   │   │   │   └── genericTransferService.js
 │   │   │   ├── ApiIT.js
+│   │   │   ├── bancoService.js
 │   │   │   ├── empleadoService.js
 │   │   │   ├── empresaService.js
 │   │   │   ├── logService.js
 │   │   │   ├── parametrosGeneralesService.js
 │   │   │   ├── rolService.js
 │   │   │   ├── tipoDocumentoService.js
+│   │   │   ├── tiposNovedadesService.js
 │   │   │   └── usuarioService.js
 │   │   ├── store
 │   │   │   └── index.js
 │   │   ├── utils
 │   │   │   ├── actualizacionEmpresaUtil.js
 │   │   │   ├── alertResponseHttpUtil.js
+│   │   │   ├── alertToastUtil.js
 │   │   │   ├── alertUtil.js
 │   │   │   ├── configError.js
 │   │   │   ├── errorHandlerUtil.js
 │   │   │   ├── excelJsUtil.js
-│   │   │   └── formatearMonedaUtil.js
+│   │   │   ├── formatearFechaUtil.js
+│   │   │   ├── formatearMonedaUtil.js
+│   │   │   ├── normalizarDatosUtil.js
+│   │   │   ├── permisosUtil.js
+│   │   │   ├── transformarPermisosUtil.js
+│   │   │   └── validationsUtil.js
 │   │   ├── views
+│   │   │   ├── Account
+│   │   │   │   ├── CambiarContrasena
+│   │   │   │   │   ├── Card
+│   │   │   │   │   │   └── CambioContrasenaCard.vue
+│   │   │   │   │   ├── Form
+│   │   │   │   │   │   └── CambioContrasenaForm.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   ├── Login
+│   │   │   │   │   ├── Card
+│   │   │   │   │   │   └── LoginCard.vue
+│   │   │   │   │   ├── Form
+│   │   │   │   │   │   └── LoginForm.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   └── OlvidoContrasena
+│   │   │   │       ├── Card
+│   │   │   │       │   └── EnviarCorreoCard.vue
+│   │   │   │       ├── Form
+│   │   │   │       │   └── EnviarCorreoForm.vue
+│   │   │   │       └── Index.vue
 │   │   │   ├── Configurar
 │   │   │   │   ├── EditarEmpresa
 │   │   │   │   │   ├── Modal
@@ -387,15 +491,23 @@
 │   │   │   │   │   ├── Table
 │   │   │   │   │   │   └── EmpresasTable.vue
 │   │   │   │   │   └── Index.vue
-│   │   │   │   ├── ParametrizarConvenio
+│   │   │   │   ├── Generales
 │   │   │   │   │   ├── Modal
-│   │   │   │   │   │   └── EditarSucursal.vue
+│   │   │   │   │   │   └── CrearEditarCompania.vue
 │   │   │   │   │   ├── Table
-│   │   │   │   │   │   └── SucursalesConvenioTable.vue
+│   │   │   │   │   │   └── ParametrosGeneralesTable.vue
 │   │   │   │   │   └── Index.vue
-│   │   │   │   └── Compania.vue
+│   │   │   │   └── ParametrizarConvenio
+│   │   │   │       ├── Modal
+│   │   │   │       │   └── EditarSucursal.vue
+│   │   │   │       ├── Table
+│   │   │   │       │   └── SucursalesConvenioTable.vue
+│   │   │   │       └── Index.vue
 │   │   │   ├── Log
-│   │   │   │   └── Log.vue
+│   │   │   │   └── Log
+│   │   │   │       ├── Table
+│   │   │   │       │   └── LogTable.vue
+│   │   │   │       └── Index.vue
 │   │   │   ├── Novedades
 │   │   │   │   ├── ConsultaCreditos
 │   │   │   │   │   ├── Alerts
@@ -415,19 +527,43 @@
 │   │   │   │   │   ├── Table
 │   │   │   │   │   │   └── EmpleadosRetiradosTable.vue
 │   │   │   │   │   └── Index.vue
-│   │   │   │   ├── reports
-│   │   │   │   │   ├── camposExcel.js
-│   │   │   │   │   └── datosEmpleados.js
-│   │   │   │   ├── ImportarDatos.vue
+│   │   │   │   ├── ImportaDatos
+│   │   │   │   │   ├── Card
+│   │   │   │   │   │   └── RecomendacionesImportacion.vue
+│   │   │   │   │   ├── helpers
+│   │   │   │   │   │   ├── calcularEstadoHelper.js
+│   │   │   │   │   │   ├── normalizarDatosHelper.js
+│   │   │   │   │   │   ├── normalizarNovedadesHelper.js
+│   │   │   │   │   │   ├── reglasNegocioHelper.js
+│   │   │   │   │   │   ├── validarEmpleadoHelper.js
+│   │   │   │   │   │   ├── validarEsquemaHelper.js
+│   │   │   │   │   │   └── validarNovedadHelper.js
+│   │   │   │   │   ├── reports
+│   │   │   │   │   │   ├── camposExcel.js
+│   │   │   │   │   │   └── datosEmpleados.js
+│   │   │   │   │   ├── schemas
+│   │   │   │   │   │   ├── empleadoSchema.js
+│   │   │   │   │   │   └── novedadSchema.js
+│   │   │   │   │   └── Index.vue
 │   │   │   │   └── RegistrarDatos.vue
-│   │   │   ├── Users
-│   │   │   │   ├── ForgotPassword.vue
-│   │   │   │   ├── GestionUsuario.vue
-│   │   │   │   ├── MyPerfil.vue
-│   │   │   │   ├── Roles.vue
-│   │   │   │   └── Usuario.vue
-│   │   │   ├── Home.vue
-│   │   │   └── Login.vue
+│   │   │   ├── Usuarios
+│   │   │   │   ├── Gestion
+│   │   │   │   │   ├── Helper
+│   │   │   │   │   │   └── arbolPermisosHelper.js
+│   │   │   │   │   ├── Modal
+│   │   │   │   │   │   ├── ModalAsociarEmpresa.vue
+│   │   │   │   │   │   ├── ModalFormRol.vue
+│   │   │   │   │   │   └── ModalFormUsuario.vue
+│   │   │   │   │   ├── Tab
+│   │   │   │   │   │   ├── RolesTab.vue
+│   │   │   │   │   │   └── UsuarioTab.vue
+│   │   │   │   │   ├── Table
+│   │   │   │   │   │   ├── TableEmpresasUsuario.vue
+│   │   │   │   │   │   ├── TableRol.vue
+│   │   │   │   │   │   └── TableUsuario.vue
+│   │   │   │   │   └── Index.vue
+│   │   │   │   └── MyPerfil.vue
+│   │   │   └── Home.vue
 │   │   ├── App.vue
 │   │   └── main.js
 │   ├── vendor
@@ -452,4 +588,5 @@
 ├── .gitignore
 ├── arquitectura.ps1
 ├── docker-compose.yml
-└── README.md
+├── README.md
+└── sonar-project.properties
