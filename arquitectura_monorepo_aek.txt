@@ -48,6 +48,7 @@
 │       ├── middlewares
 │       │   ├── auth-apikey-anonymous.middleware.js
 │       │   ├── auth-apikey-public.middleware.js
+│       │   ├── auth-apikey-server.middleware.js
 │       │   ├── auth-public.middleware.js
 │       │   ├── auth.middleware.js
 │       │   ├── error-handler.middleware.js
