@@ -13,6 +13,8 @@
 │   ├── .eslintignore
 │   ├── .eslintrc.json
 │   ├── .gitignore
+│   ├── .husky
+│   │   └── pre-commit
 │   ├── .prettierrc
 │   ├── Dockerfile
 │   ├── emails
@@ -26,8 +28,9 @@
 │   │       └── enviar-datos-empleados.js
 │   ├── index.html
 │   ├── nodemon.json
-│   ├── package-lock.json
 │   ├── package.json
+│   ├── pnpm-lock.yaml
+│   ├── pnpm-workspace.yaml
 │   ├── README.md
 │   └── src
 │       ├── app.js
@@ -383,12 +386,15 @@
 │   ├── .eslintignore
 │   ├── .eslintrc.json
 │   ├── .gitignore
+│   ├── .husky
+│   │   └── pre-commit
 │   ├── .prettierrc
 │   ├── babel.config.js
 │   ├── Dockerfile
 │   ├── example.env
-│   ├── package-lock.json
 │   ├── package.json
+│   ├── pnpm-lock.yaml
+│   ├── pnpm-workspace.yaml
 │   ├── public
 │   │   ├── IconoWarning.png
 │   │   ├── index.html
@@ -441,7 +447,8 @@
 │   │   │       ├── Configurar
 │   │   │       │   └── parametrizacionCompaniaMixin.js
 │   │   │       ├── Empleados
-│   │   │       │   └── gestionMixin.js
+│   │   │       │   ├── gestionMixin.js
+│   │   │       │   └── importarDatosMixin.js
 │   │   │       └── user
 │   │   │           └── gestionUsuarioMixin.js
 │   │   ├── model
