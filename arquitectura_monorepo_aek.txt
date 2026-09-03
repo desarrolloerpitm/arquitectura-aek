@@ -32,6 +32,7 @@
 │   ├── pnpm-lock.yaml
 │   ├── pnpm-workspace.yaml
 │   ├── README.md
+│   ├── server.log
 │   └── src
 │       ├── app.js
 │       ├── config
@@ -61,7 +62,7 @@
 │       │   └── validation-handler.middleware.js
 │       ├── modelos.js
 │       ├── modules
-│       │   ├── anonymous
+│       │   ├── abiertas
 │       │   │   └── parametros-generales
 │       │   │       ├── parametros-generales.controller.js
 │       │   │       ├── parametros-generales.routes.js
@@ -359,7 +360,7 @@
 │       │               │   └── validar-elegibilidad.schema.js
 │       │               └── swagger.yaml
 │       ├── routes
-│       │   ├── anonimas.routes.js
+│       │   ├── abiertas.routes.js
 │       │   ├── index.js
 │       │   ├── integracion.routes.js
 │       │   ├── internas.routes.js
@@ -379,6 +380,7 @@
 │           ├── token.js
 │           └── tokenPassword.js
 ├── docker-compose.yml
+├── excalidraw.log
 ├── Front
 │   ├── .dockerignore
 │   ├── .env.development
@@ -423,8 +425,6 @@
 │   │   │   ├── Modal
 │   │   │   │   └── ModalLoading.vue
 │   │   │   ├── Novedades
-│   │   │   │   ├── ModalCartera.vue
-│   │   │   │   ├── ModalFormEmpleado.vue
 │   │   │   │   └── TarjetaTituloPaso.vue
 │   │   │   ├── Sidebar.vue
 │   │   │   └── Table
@@ -449,8 +449,12 @@
 │   │   │       ├── Empleados
 │   │   │       │   ├── gestionMixin.js
 │   │   │       │   └── importarDatosMixin.js
+│   │   │       ├── novedades
+│   │   │       │   └── registroDatosMixin.js
 │   │   │       └── user
-│   │   │           └── gestionUsuarioMixin.js
+│   │   │           ├── gestionUsuarioMixin.js
+│   │   │           ├── miPerfilMixin.js
+│   │   │           └── rolesMixin.js
 │   │   ├── model
 │   │   │   ├── ModelEmpleado.js
 │   │   │   └── ModelRol.js
@@ -592,7 +596,25 @@
 │   │       │   │   └── schemas
 │   │       │   │       ├── empleadoSchema.js
 │   │       │   │       └── novedadSchema.js
-│   │       │   └── RegistrarDatos.vue
+│   │       │   └── RegistrarDatos
+│   │       │       ├── Forms
+│   │       │       │   └── RegistrarFiltro.vue
+│   │       │       ├── Helper
+│   │       │       │   ├── empleadoFormatoHelper.js
+│   │       │       │   └── empleadoHelper.js
+│   │       │       ├── Index.vue
+│   │       │       ├── Modal
+│   │       │       │   ├── ModalCartera.vue
+│   │       │       │   └── ModalFormEmpleado.vue
+│   │       │       ├── Partials
+│   │       │       │   └── EmpleadosTab.vue
+│   │       │       ├── Reports
+│   │       │       │   ├── columnasExcel.js
+│   │       │       │   └── datosEmpleados.js
+│   │       │       └── Table
+│   │       │           ├── TablaCarteraCompanias.vue
+│   │       │           ├── TablaCarteraDocumentos.vue
+│   │       │           └── TablaEmpleados.vue
 │   │       └── Usuarios
 │   │           ├── Gestion
 │   │           │   ├── Helper
