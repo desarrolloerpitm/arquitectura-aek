@@ -1,7 +1,30 @@
+├── .agents
+│   └── resources
+│       └── Estandares_de_desarrollo_ERP_2026.md
 ├── .dockerignore
 ├── .env
 ├── .gitattributes
 ├── .gitignore
+├── .husky
+│   ├── pre-commit
+│   └── _
+│       ├── .gitignore
+│       ├── applypatch-msg
+│       ├── commit-msg
+│       ├── h
+│       ├── husky.sh
+│       ├── post-applypatch
+│       ├── post-checkout
+│       ├── post-commit
+│       ├── post-merge
+│       ├── post-rewrite
+│       ├── pre-applypatch
+│       ├── pre-auto-gc
+│       ├── pre-commit
+│       ├── pre-merge-commit
+│       ├── pre-push
+│       ├── pre-rebase
+│       └── prepare-commit-msg
 ├── .scannerwork
 │   ├── .sonar_lock
 │   └── report-task.txt
@@ -13,8 +36,6 @@
 │   ├── .eslintignore
 │   ├── .eslintrc.json
 │   ├── .gitignore
-│   ├── .husky
-│   │   └── pre-commit
 │   ├── .prettierrc
 │   ├── Dockerfile
 │   ├── emails
@@ -51,6 +72,7 @@
 │       ├── index.js
 │       ├── middlewares
 │       │   ├── auth-apikey-anonymous.middleware.js
+│       │   ├── auth-apikey-integraciones.middleware.js
 │       │   ├── auth-apikey-public.middleware.js
 │       │   ├── auth-apikey-server.middleware.js
 │       │   ├── auth-public.middleware.js
@@ -63,6 +85,10 @@
 │       ├── modelos.js
 │       ├── modules
 │       │   ├── abiertas
+│       │   │   ├── api-documentos
+│       │   │   │   ├── api-documentos.controller.js
+│       │   │   │   ├── api-documentos.routes.js
+│       │   │   │   └── swagger.yaml
 │       │   │   └── parametros-generales
 │       │   │       ├── parametros-generales.controller.js
 │       │   │       ├── parametros-generales.routes.js
@@ -99,13 +125,17 @@
 │       │   │   │   ├── bancos.routes.js
 │       │   │   │   ├── bancos.service.js
 │       │   │   │   ├── helpers
-│       │   │   │   │   └── filtros.helper.js
+│       │   │   │   │   ├── filtros.helper.js
+│       │   │   │   │   ├── sanitizar-tipos-cuenta.helper.js
+│       │   │   │   │   └── validar-tipos-cuenta.helper.js
 │       │   │   │   ├── models
 │       │   │   │   │   ├── banco.model.js
-│       │   │   │   │   └── swagger.yaml
+│       │   │   │   │   ├── swagger.yaml
+│       │   │   │   │   └── tipos-cuenta.model.js
 │       │   │   │   ├── schemas
 │       │   │   │   │   ├── actualizar-banco.schema.js
 │       │   │   │   │   ├── crear-banco.schema.js
+│       │   │   │   │   ├── crear-tipos-cuenta.schema.js
 │       │   │   │   │   └── swagger.yaml
 │       │   │   │   └── swagger.yaml
 │       │   │   ├── empleados
@@ -327,7 +357,10 @@
 │       │   │   ├── api-data-erp
 │       │   │   │   └── api-data-erp.service.js
 │       │   │   └── api-documentos
-│       │   │       └── api-documentos.service.js
+│       │   │       ├── api-documentos.controller.js
+│       │   │       ├── api-documentos.routes.js
+│       │   │       ├── api-documentos.service.js
+│       │   │       └── swagger.yaml
 │       │   └── publics
 │       │       ├── autenticacion
 │       │       │   ├── auth.controller.js
@@ -380,7 +413,6 @@
 │           ├── token.js
 │           └── tokenPassword.js
 ├── docker-compose.yml
-├── excalidraw.log
 ├── Front
 │   ├── .dockerignore
 │   ├── .env.development
@@ -388,8 +420,6 @@
 │   ├── .eslintignore
 │   ├── .eslintrc.json
 │   ├── .gitignore
-│   ├── .husky
-│   │   └── pre-commit
 │   ├── .prettierrc
 │   ├── babel.config.js
 │   ├── Dockerfile
@@ -405,9 +435,7 @@
 │   ├── README.md
 │   ├── src
 │   │   ├── API
-│   │   │   ├── ApiURL.js
-│   │   │   └── Services
-│   │   │       └── Services.js
+│   │   │   └── ApiURL.js
 │   │   ├── App.vue
 │   │   ├── assets
 │   │   │   ├── logos
@@ -418,14 +446,14 @@
 │   │   │       └── styleLogin.css
 │   │   ├── components
 │   │   │   ├── Avatar.vue
+│   │   │   ├── Empleados
+│   │   │   │   └── TarjetaTituloPaso.vue
 │   │   │   ├── Footer.vue
 │   │   │   ├── ImagenCompania.vue
 │   │   │   ├── Layout
 │   │   │   │   └── SubModulo.vue
 │   │   │   ├── Modal
 │   │   │   │   └── ModalLoading.vue
-│   │   │   ├── Novedades
-│   │   │   │   └── TarjetaTituloPaso.vue
 │   │   │   ├── Sidebar.vue
 │   │   │   └── Table
 │   │   │       └── DataTablePagination.vue
@@ -445,13 +473,20 @@
 │   │   │   ├── paginacionMixin.js
 │   │   │   └── Permisos
 │   │   │       ├── Configurar
-│   │   │       │   └── parametrizacionCompaniaMixin.js
+│   │   │       │   ├── parametrizacionCompaniaMixin.js
+│   │   │       │   ├── parametrizacionEmpresaMixin.js
+│   │   │       │   └── parametrosMixin.js
 │   │   │       ├── Empleados
+│   │   │       │   ├── consultaCreditosMixin.js
+│   │   │       │   ├── empleadosRetiradosMixin.js
 │   │   │       │   ├── gestionMixin.js
-│   │   │       │   └── importarDatosMixin.js
-│   │   │       ├── novedades
+│   │   │       │   ├── importarDatosMixin.js
+│   │   │       │   ├── novedadesMixin.js
 │   │   │       │   └── registroDatosMixin.js
+│   │   │       ├── Log
+│   │   │       │   └── logsMixin.js
 │   │   │       └── user
+│   │   │           ├── accesoMixin.js
 │   │   │           ├── gestionUsuarioMixin.js
 │   │   │           ├── miPerfilMixin.js
 │   │   │           └── rolesMixin.js
@@ -465,7 +500,7 @@
 │   │   ├── router
 │   │   │   └── index.js
 │   │   ├── Services
-│   │   │   ├── ApiIT.js
+│   │   │   ├── apiDocumentosService.js
 │   │   │   ├── auth
 │   │   │   │   └── authServices.js
 │   │   │   ├── bancoService.js
@@ -539,13 +574,7 @@
 │   │       │       │   └── EditarSucursal.vue
 │   │       │       └── Table
 │   │       │           └── SucursalesConvenioTable.vue
-│   │       ├── Home.vue
-│   │       ├── Log
-│   │       │   └── Log
-│   │       │       ├── Index.vue
-│   │       │       └── Table
-│   │       │           └── LogTable.vue
-│   │       ├── Novedades
+│   │       ├── Empleados
 │   │       │   ├── ConsultaCreditos
 │   │       │   │   ├── Alerts
 │   │       │   │   │   ├── DatosDesactualizados.vue
@@ -556,14 +585,6 @@
 │   │       │   │   └── Partials
 │   │       │   │       ├── DatosEmpleado.vue
 │   │       │   │       └── DisponibilidadCreditos.vue
-│   │       │   ├── EmpleadosRetirados
-│   │       │   │   ├── Form
-│   │       │   │   │   └── FiltrarEmpleadosRetirados.vue
-│   │       │   │   ├── Index.vue
-│   │       │   │   ├── reports
-│   │       │   │   │   └── descargarHistoricoEmpRetirados.js
-│   │       │   │   └── Table
-│   │       │   │       └── EmpleadosRetiradosTable.vue
 │   │       │   ├── GestionEmpleados
 │   │       │   │   ├── Forms
 │   │       │   │   │   ├── EmpleadoInformacionLaboralForm.vue
@@ -578,7 +599,7 @@
 │   │       │   │   │   └── EmpleadoStepper.vue
 │   │       │   │   └── Table
 │   │       │   │       └── GestionTable.vue
-│   │       │   ├── ImportaDatos
+│   │       │   ├── ImportarDatos
 │   │       │   │   ├── Card
 │   │       │   │   │   └── RecomendacionesImportacion.vue
 │   │       │   │   ├── helpers
@@ -596,25 +617,39 @@
 │   │       │   │   └── schemas
 │   │       │   │       ├── empleadoSchema.js
 │   │       │   │       └── novedadSchema.js
-│   │       │   └── RegistrarDatos
-│   │       │       ├── Forms
-│   │       │       │   └── RegistrarFiltro.vue
-│   │       │       ├── Helper
-│   │       │       │   ├── empleadoFormatoHelper.js
-│   │       │       │   └── empleadoHelper.js
+│   │       │   ├── RegistrarDatos
+│   │       │   │   ├── Forms
+│   │       │   │   │   └── RegistrarFiltro.vue
+│   │       │   │   ├── Helper
+│   │       │   │   │   ├── empleadoFormatoHelper.js
+│   │       │   │   │   └── empleadoHelper.js
+│   │       │   │   ├── Index.vue
+│   │       │   │   ├── Modal
+│   │       │   │   │   ├── ModalCartera.vue
+│   │       │   │   │   └── ModalFormEmpleado.vue
+│   │       │   │   ├── Partials
+│   │       │   │   │   └── EmpleadosTab.vue
+│   │       │   │   ├── Reports
+│   │       │   │   │   ├── columnasExcel.js
+│   │       │   │   │   └── datosEmpleados.js
+│   │       │   │   └── Table
+│   │       │   │       ├── TablaCarteraCompanias.vue
+│   │       │   │       ├── TablaCarteraDocumentos.vue
+│   │       │   │       └── TablaEmpleados.vue
+│   │       │   └── Retirados
+│   │       │       ├── Form
+│   │       │       │   └── FiltrarEmpleadosRetirados.vue
 │   │       │       ├── Index.vue
-│   │       │       ├── Modal
-│   │       │       │   ├── ModalCartera.vue
-│   │       │       │   └── ModalFormEmpleado.vue
-│   │       │       ├── Partials
-│   │       │       │   └── EmpleadosTab.vue
-│   │       │       ├── Reports
-│   │       │       │   ├── columnasExcel.js
-│   │       │       │   └── datosEmpleados.js
+│   │       │       ├── reports
+│   │       │       │   └── descargarHistoricoEmpRetirados.js
 │   │       │       └── Table
-│   │       │           ├── TablaCarteraCompanias.vue
-│   │       │           ├── TablaCarteraDocumentos.vue
-│   │       │           └── TablaEmpleados.vue
+│   │       │           └── EmpleadosRetiradosTable.vue
+│   │       ├── Home.vue
+│   │       ├── Log
+│   │       │   └── Log
+│   │       │       ├── Index.vue
+│   │       │       └── Table
+│   │       │           └── LogTable.vue
 │   │       └── Usuarios
 │   │           ├── Gestion
 │   │           │   ├── Helper
